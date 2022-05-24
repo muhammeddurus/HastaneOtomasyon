@@ -142,8 +142,9 @@ namespace HastaneOtomasyon
         {
             MessageBox.Show("Test"+ comboBox1.SelectedItem);
             if (comboBoxDoktor.SelectedItem != null && comboBoxPoliklinik.SelectedItem != null && comboBox1.SelectedItem != null && dateTimePicker1.Value != null && dateTimePicker1.Value > DateTime.Now)
-            {
-                SqlCommand cmd = new SqlCommand("insert into Randevular(Tarih,Saat,Hasta_ID,Poliklinik_ID,Doktor_ID,Durum) values(@tarih,@saat,@hId,@pId,@dId,@durum)", con);
+            { 
+                SqlCommand cmd = new SqlCommand("insert into Randevular(Tarih,Saat,Hasta_ID,Poliklinik_ID,Doktor_ID,Durum) values(@tarih,@saat,@hId,@pId,@dId,@durum ) set @ID = SCOPE_IDENTITY()", con);
+                
                 con.Open();
                 
                 cmd.Parameters.AddWithValue("@tarih", dateTimePicker1.Text);
@@ -152,7 +153,27 @@ namespace HastaneOtomasyon
                 cmd.Parameters.AddWithValue("@pId", comboBoxPoliklinik.SelectedValue);
                 cmd.Parameters.AddWithValue("@dId", comboBoxDoktor.SelectedValue);
                 cmd.Parameters.AddWithValue("@durum", true);
+                cmd.Parameters.AddWithValue("@ID", SqlDbType.Int).Direction = ParameterDirection.Output;
                 cmd.ExecuteNonQuery();
+                int id = Convert.ToInt32(cmd.Parameters["@ID"].Value);
+                SqlCommand cmd2 = new SqlCommand("insert into HastaKabuller(Sikayet,Randevu_ID,Durum) values (@sikayet,@rndId,@durum)", con);
+                    try
+                    {
+                        
+                        cmd2.Parameters.AddWithValue("@sikayet", "Belirtilmedi");
+                        cmd2.Parameters.AddWithValue("@rndId", id);
+                        cmd2.Parameters.AddWithValue("@durum", false);
+                        cmd2.ExecuteNonQuery();
+                       
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Hasta Kabul Başarısız. ''' " + ex.Message);
+                        throw;
+                    }
+
+                
                 con.Close();
             }
             else

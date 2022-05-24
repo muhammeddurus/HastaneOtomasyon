@@ -46,7 +46,7 @@ namespace HastaneOtomasyon
             this.toolStripButton3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(805, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1040, 27);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -57,6 +57,7 @@ namespace HastaneOtomasyon
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(108, 24);
             this.toolStripButton1.Text = "Hasta Kayıt";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripButton2
             // 
@@ -73,13 +74,15 @@ namespace HastaneOtomasyon
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(84, 24);
             this.toolStripButton3.Text = "Tahliller";
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // PersonelLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 509);
+            this.ClientSize = new System.Drawing.Size(1040, 509);
             this.Controls.Add(this.toolStrip1);
+            this.IsMdiContainer = true;
             this.Name = "PersonelLogin";
             this.Text = "PersonelLogin";
             this.Load += new System.EventHandler(this.PersonelLogin_Load);

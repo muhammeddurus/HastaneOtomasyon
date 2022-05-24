@@ -94,6 +94,12 @@
     <Compile Include="SignIn.Designer.cs">
       <DependentUpon>SignIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tahiller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tahiller.Designer.cs">
+      <DependentUpon>Tahiller.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserLogin.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tahiller.resx">
+      <DependentUpon>Tahiller.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\KimlikBilgileri\HastaneOtomasyon.KimlikBilgileri.TCKimlikNoDogrulaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
