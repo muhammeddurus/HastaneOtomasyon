@@ -66,5 +66,10 @@ namespace HastaneOtomasyon
                 MessageBox.Show("Zaten Açık");
             }
         }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

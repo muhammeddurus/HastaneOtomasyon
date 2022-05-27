@@ -12,7 +12,7 @@ namespace HastaneOtomasyon
         {
             get
             {
-                return "Server=.\\SQLEXPRESS;Database=TechLineHospital;User Id=sa;Password=md12561256;";
+                return "Server=.\\SQLEXPRESS;Database=TechLineHospital;User Id=sa;Password=md12561256; MultipleActiveResultSets=True;";
             }
         }
     }

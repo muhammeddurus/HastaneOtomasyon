@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace HastaneOtomasyon
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -37,7 +37,7 @@ namespace HastaneOtomasyon
             if (txtPassword.Text != string.Empty || txtUsername.Text != string.Empty)
             {
 
-                SqlCommand cmd = new SqlCommand("select HastaId,HastaTCKN from Hastalar where HastaTCKN='" + txtUsername.Text + "' and Sifre='" + txtPassword.Text + "'", con);
+                SqlCommand cmd = new SqlCommand("select HastaId,HastaTCKN,HastaAd + ' ' +HastaSoyad as [Ad Soyad] from Hastalar where HastaTCKN='" + txtUsername.Text + "' and Sifre='" + txtPassword.Text + "'", con);
                 SqlCommand cmd2 = new SqlCommand("select Calisan_Id,SicilNo from Calisanlar where SicilNo='" + txtUsername.Text + "' and Sifre='" + txtPassword.Text + "'", con);
                 
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -46,6 +46,7 @@ namespace HastaneOtomasyon
                 {
                     UserLogin.KullaniciAdi = dr[1].ToString();
                     UserLogin.ID = Convert.ToInt32(dr[0]);
+                    UserLogin.Ad = dr[2].ToString();
                     
                     dr.Close();
                     HomePage home = new HomePage();
@@ -56,6 +57,7 @@ namespace HastaneOtomasyon
                 {
                     UserLogin.KullaniciAdi = dr2[1].ToString();
                     UserLogin.ID = Convert.ToInt32(dr2[0]);
+                    UserLogin.Ad = dr2[2].ToString();
 
                     dr.Close();
                     PersonelLogin PersonelHome = new PersonelLogin();

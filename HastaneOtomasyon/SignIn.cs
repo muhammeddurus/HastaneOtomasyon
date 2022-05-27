@@ -62,13 +62,14 @@ namespace HastaneOtomasyon
                             con.Close();
                             MessageBox.Show("BAŞARILI");
 
-                            SqlCommand cmd2 = new SqlCommand("select HastaId,HastaTCKN from Hastalar where HastaTCKN = '"+textTc.Text+"'",con);
+                            SqlCommand cmd2 = new SqlCommand("select HastaId,HastaTCKN,HastaAd +' '+HastaSoyad as [Ad Soyad] from Hastalar where HastaTCKN = '"+textTc.Text+"'",con);
                             con.Open();
                             SqlDataReader dr = cmd2.ExecuteReader();
                             if (dr.Read())
                             {
                                 UserLogin.KullaniciAdi = dr[1].ToString();
                                 UserLogin.ID = Convert.ToInt32(dr[0]);
+                                UserLogin.Ad = dr[2].ToString();
 
                                 dr.Close();
                                 HomePage home = new HomePage();

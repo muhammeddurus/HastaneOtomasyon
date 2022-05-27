@@ -146,6 +146,7 @@ namespace HastaneOtomasyon
             this.Controls.Add(this.dateTimePicker1);
             this.Name = "RandevuAl";
             this.Text = "RandevuAl";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.RandevuAl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

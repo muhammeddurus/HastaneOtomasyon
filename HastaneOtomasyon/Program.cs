@@ -16,7 +16,7 @@ namespace HastaneOtomasyon
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PersonelLogin());
+            Application.Run(new Login());
         }
     }
 }
