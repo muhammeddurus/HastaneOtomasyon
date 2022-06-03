@@ -29,7 +29,7 @@ namespace HastaneOtomasyon
             if (dr.HasRows)
             {
                 dtPoliklinik.Load(dr);
-                MessageBox.Show("Poliklinik Geldi Babba");
+                MessageBox.Show("Poliklinik Geldi ");
             }
             comboBoxPoliklinik.DataSource = dtPoliklinik;
             comboBoxPoliklinik.DisplayMember = "PoliklinikAdi";
@@ -80,10 +80,10 @@ namespace HastaneOtomasyon
                     for (int i = 0; i < comboBox1.Items.Count; i++)
                     {
 
-                        MessageBox.Show("fordur");
+                        MessageBox.Show("for");
                         if (comboBox1.Items[i].ToString() == item["Saat"].ToString())
                         {
-                            MessageBox.Show("Valla İftir.");
+                            MessageBox.Show("If statement");
                             comboBox1.Items.RemoveAt(i);
                         }
                     }
